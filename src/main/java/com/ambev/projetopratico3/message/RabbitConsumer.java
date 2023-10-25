@@ -9,7 +9,6 @@ public class RabbitConsumer {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         while (true) {
-
             try (Connection connection = factory.newConnection();
                  Channel channel = connection.createChannel()) {
                 channel.queueDeclare(QUEUE_NAME, true, false, false, null);
