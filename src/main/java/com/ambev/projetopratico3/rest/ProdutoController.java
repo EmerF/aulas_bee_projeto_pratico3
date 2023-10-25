@@ -42,11 +42,6 @@ public class ProdutoController {
         messageProducer.sendMessage(String.format("Produto %s cadastrado com sucesso!",produto.toString()));
         return produtoRepository.save(produto);
     }
-    //create a ping that responds with pong
-    @GetMapping("/ping")
-    public String ping() {
-        return "pong";
-    }
 
     @GetMapping("/consultar/{nome}")
     public ResponseEntity<List<Produto>> consultarProdutos(@PathVariable String nome) {
