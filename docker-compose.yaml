@@ -1,0 +1,23 @@
+version: '3'
+services:
+  tech-app:
+    build:
+      context: .  # Utiliza o diretório atual para construir a aplicação Spring Boot
+    ports:
+      - "8080:8080"  # Mapeia a porta da aplicação Spring Boot para o host
+    depends_on:
+      - mongo_db  # Garante que a aplicação Spring Boot seja iniciada após o contêiner do MongoDB
+      - rabbitmq  # Adiciona dependência no serviço rabbitmq
+
+  mongo_db:
+    image: mongo:latest
+    restart: always # Utiliza a imagem oficial do MongoDB
+    ports:
+      - "27017:27017"  # Mapeia a porta do MongoDB para o host
+  rabbitmq:
+    image: "rabbitmq:management"  # Utiliza a imagem RabbitMQ com o plugin de gerenciamento
+    ports:
+      - "5672:5672"  # Porta de mensagens do RabbitMQ
+      - "15672:15672"  # Porta do plugin de gerenciamento do RabbitMQ
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "valor-unico-do-cookie"
