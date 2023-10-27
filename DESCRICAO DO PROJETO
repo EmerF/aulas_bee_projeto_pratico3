@@ -1,0 +1,25 @@
+Projeto prático 3
+
+1. Projeto prático 3
+
+    a. Fork do projeto
+        - https://github.com/EmerF/aulas_bee_projeto_pratico3
+    b. Adicionar configs para usar o mongo
+    c. Adicionar configs para salvar em uma fila do rabbit
+        - nome da fila: cadastroProdutos
+        - criar um consumidor para testar o consumo da mensagens
+    d. Criar as classes para representar os produtos:
+        - Campos comuns:
+        - id, descricao, preco
+        - Água(com gás/sem gás)
+        - Refrigerante(com/sem açucar)
+    e. Criar endpoint que faz duas operações:
+        - salva o produto no banco
+        - enviar os dados do produto para a fila do rabbit
+        - endereco: /api/produtos
+    f. Criar imagem para docker-compose que rode
+        - aplicação
+        - mongo
+        - rabbit
+    g. Enviar o projeto via pull request para o endereço onde foi
+    clonado o projeto até o dia 28/10/23 às 23:59
