@@ -1,0 +1,20 @@
+version: '3'
+services:
+  app:
+    image: nome-da-imagem:tag
+    ports:
+      - "8080:8080"
+    links:
+      - mongo
+      - rabbit
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+
+  rabbit:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
